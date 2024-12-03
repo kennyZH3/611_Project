@@ -1,12 +1,12 @@
 ---
 title: "Mobile Device User Behavior Report"
-output: html_document
+output: pdf_document
 date: "2024-12-03"
 author: Kenny Zhang
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE, fig.pos = "H", out.extra = "", fig.align = "center")
 library(readr)
 library(tidyverse)
 library(plotly)
@@ -41,7 +41,7 @@ In the report, comprehensive Exploratory Data Analysis (EDA) and Classification 
 
 First, let's visualize the distribution of the data to have a better understanding.
 
-![Figure 1: Data Distributions](figures/user_behavior_summary.png)
+![Data Distributions](figures/user_behavior_summary.png)
 
 <br>
 
@@ -51,7 +51,7 @@ The dataset is well balanced in terms of device models, user behavior classes, a
 
 We aim to visualize and understand the differences among users across various behavior classes. Specifically, we want to explore the relationship between App Usage Time and Battery Drain for users in each behavior class within the dataset.
 
-![Figure 2: Relationship Between App Usage Time and Battery Drain by Class. The x-axis is daily time spent on mobile applications, measured in minutes, and the y-axis is daily battery consumption in mAh, color coded by user's behavior class.](figures/app_usage_vs_battery.png)
+![Relationship Between App Usage Time and Battery Drain by Class. The x-axis is daily time spent on mobile applications, measured in minutes, and the y-axis is daily battery consumption in mAh, color coded by user's behavior class.](figures/app_usage_vs_battery.png)
 
 
 <br>
@@ -62,7 +62,7 @@ As observed, there is a clear positive relationship between App Usage Time and B
 
 Age could be an influential factor in determining user behavior. In this section, we explore the relationship between age and the number of apps installed on a device. Specifically, we are interested in whether younger users tend to have more apps installed and use their phones more frequently compared to older users.
 
-![Figure 3: Relationship between user age and number of apps installed. The x-axis is age, the y-axis is the number of apps installed on the device. Each point is colored by their corresponding user behavior class and the size represents the average amount of hours per day the screen is active, the larger the points,the longer the corresponding screen time.](figures/age_vs_num_apps.png)
+![Relationship between user age and number of apps installed. The x-axis is age, the y-axis is the number of apps installed on the device. Each point is colored by their corresponding user behavior class and the size represents the average amount of hours per day the screen is active, the larger the points,the longer the corresponding screen time.](figures/age_vs_num_apps.png)
 
 <bc>
 
@@ -74,7 +74,7 @@ The scatter plots suggest that age does not significantly impact the number of a
 
 Next, we examine whether gender influences user behavior, focusing specifically on App Usage Time as the variable of interest to measure potential differences.
 
-![Figure 4: App Usage by Gender: Violin Plot with Boxplot and Mean Comparison. The x-axis is the two genders and the y-axis is daily time spent on mobile applications, measured in minutes. The red-dashed line is used to compare the difference in mean between the two genders.](figures/app_usage_by_gender.png)
+![App Usage by Gender: Violin Plot with Boxplot and Mean Comparison. The x-axis is the two genders and the y-axis is daily time spent on mobile applications, measured in minutes. The red-dashed line is used to compare the difference in mean between the two genders.](figures/app_usage_by_gender.png)
 
 <bc>
 
@@ -85,7 +85,7 @@ The violin plot indicates that the distribution of daily app usage time is quite
 
 Next, we explore the differences among various phone models, focusing on the distribution of Data Usage across different devices, separated by gender. Our aim is to determine whether certain phone models are associated with lower data consumption and whether gender plays a role in influencing data usage patterns.
 
-![Figure 5: Distribution of Data Usage by Device and Gender. The x-axis is the model of the user's smartphone, the y-axis is the daily mobile data consumption in megabytes. The box plots are also separated by gender.](figures/data_usage_by_device_gender.png)
+![Distribution of Data Usage by Device and Gender. The x-axis is the model of the user's smartphone, the y-axis is the daily mobile data consumption in megabytes. The box plots are also separated by gender.](figures/data_usage_by_device_gender.png)
 
 <bc>
 
@@ -97,7 +97,7 @@ The box plots indicate that there are no clear differences in data consumption a
 
 Different phones exhibit varying levels of battery and data consumption. In this section, we explore the average battery drain and data usage for each device model, aiming to identify which devices are the most efficient in terms of power consumption and data usage, thereby providing more financially favorable options for users.
 
-![Figure 6: Average Battery Drain and Data Use by Phone Type. The x-axis is the device models, the y-axis is the average values for battery drain and data usage. The representation of different bars are marked in the legend.](figures/battery_data_by_phone.png)
+![Average Battery Drain and Data Use by Phone Type. The x-axis is the device models, the y-axis is the average values for battery drain and data usage. The representation of different bars are marked in the legend.](figures/battery_data_by_phone.png)
 
 <br>
 
@@ -105,7 +105,7 @@ The average battery and data consumption are quite similar across different devi
 
 <br>
 
-To further investigate the differences in battery and data consumption across various phone models, we created an interactive Shiny plot for visualization. This plot allows users to explore the data dynamically by clicking on colored dots in the legend to select or de-select different device models. Additionally, users can utilize the box select and lasso select tools to highlight specific data points and calculate the average battery drain and data usage for the selected groups, providing a more in-depth understanding of device efficiency.
+To further investigate the differences in battery and data consumption across various phone models, we created an interactive Shiny plot for visualization. This plot allows users to explore the data dynamically by clicking on colored dots in the legend to select or de-select different device models. Additionally, users can utilize the box select and lasso select tools to highlight specific data points and calculate the average battery drain and data usage for the selected groups, providing a more in-depth understanding of device efficiency. This section is only availiable for interactive html.
 
 
 ```{r,echo=FALSE, message=FALSE}
@@ -179,7 +179,7 @@ shinyApp(ui, server)
 
 Given that the different behavior classes are clearly distinct, it is worthwhile to explore whether clustering can similarly represent these classes. To investigate this, we performed K-Means clustering and Hierarchical Clustering on the first two Principal Components (PCs) of the data. This approach allows us to assess whether the resulting clusters align with the predefined user behavior classes, providing additional insight into how well these behavioral patterns can be captured by unsupervised learning methods.
 
-![Figure 7: Comparison of Two Clustering Methods with the Actual Classes. The x-axis is the first PC and the y-axis is the second PC. Each class/cluster is labeld with different colors.](figures/behavioral_clusters.png)
+![Comparison of Two Clustering Methods with the Actual Classes. The x-axis is the first PC and the y-axis is the second PC. Each class/cluster is labeld with different colors.](figures/behavioral_clusters.png)
 
 <bc>
 
@@ -205,7 +205,7 @@ Multinomial logistic regression is a statistical modeling technique used to pred
 Gradient Boosting Machine (GBM) is an ensemble learning technique that builds a series of weak learners, typically decision trees, to create a strong predictive model. It works by sequentially adding trees, where each new tree aims to correct the errors made by the previous ones, minimizing the overall loss. The "boosting" refers to the process of iteratively improving the model by focusing more on data points that were previously misclassified or had higher residual errors. GBM is known for its flexibility and effectiveness in handling various types of data, often providing high accuracy, making it a popular choice for both regression and classification tasks.
 
 
-![Figure 8: Model Performance Comparison. The x-axis is the classification models and the y-axis is the prediction accuracy.](figures/classification.png)
+![Model Performance Comparison. The x-axis is the classification models and the y-axis is the prediction accuracy.](figures/classification.png)
 
 <bc>
 
