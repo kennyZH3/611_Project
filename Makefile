@@ -73,7 +73,7 @@ report.html:\
  report_writeup.Rmd
 	Rscript -e "rmarkdown::run('report_writeup.Rmd',shiny_args = list(host = '0.0.0.0', port = 8788))"
 
-report_static.html:\
+report_static.pdf:\
  derived_data/cleaned_user_behavior.csv\
  figures/user_behavior_summary.png\
  figures/app_usage_vs_battery.png\
@@ -84,7 +84,7 @@ report_static.html:\
  figures/classification.png\
  figures/age_vs_num_apps.png\
  report_static.Rmd
-	Rscript -e "rmarkdown::render('report_static.Rmd', output_format='html_document')"
+	Rscript -e "rmarkdown::render('report_static.Rmd', output_format='pdf_document')"
 
  
  
