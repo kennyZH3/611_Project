@@ -37,6 +37,18 @@ Enter the password you provided to access RStudio.
 
 ## Building Reports
 
+Before building the project, run the following in Rstudio terminal to initialize the folders:
+
+```
+make init
+```
+
+To clean all the files made from make, run the following in Rstudio terminak:
+
+```
+make clean
+```
+
 ### Interactive Report (Shiny App)
 
 The project includes an interactive report generated using Shiny. To build the interactive report, open the terminal in RStudio and type:
