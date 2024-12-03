@@ -1,0 +1,7 @@
+.DS_Store
+.config/
+.local/
+.sh_history
+Rplots.pdf
+derived_data/
+figures/
