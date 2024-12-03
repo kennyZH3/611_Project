@@ -3,6 +3,8 @@ library(tidyverse)
 
 df <- read_csv("derived_data/cleaned_user_behavior.csv")
 
+df$gender <- factor(df$gender, levels = c(0, 1), labels = c("Male", "Female"))
+
 means <- df %>%
   group_by(gender) %>%
   summarise(mean_app_time = mean(app_time))
