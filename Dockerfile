@@ -3,7 +3,7 @@ FROM --platform=linux/amd64 rocker/verse
 
 RUN apt update && apt install -y git man-db && yes | unminimize && rm -rf /var/lib/apt/lists/*
 
-
+WORKDIR /home/rstudio/
 
 CMD ["/init"]
 
