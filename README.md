@@ -11,6 +11,20 @@ To get started, you need to build the Docker image and run an RStudio instance i
 - Docker installed on your system.
 - Recommended: macOS with an M3 chip. If using a different platform (e.g., Windows), adjust the Dockerfile to match your specific platform.
 
+### Cloning from this Github Repository 
+
+To clone from this repository, fisrt setup your local Git repository, and clone from this repository by typing in the terminal: 
+
+```
+git clone https://github.com/kennyZH3/Mobile-Device-User-Behavior-Report_.git
+```
+
+Then, set the working directory to the cloned repository by typing in the terminal:
+
+```
+cd Mobile-Device-User-Behavior-Report_/
+```
+
 ### Build Docker Image
 
 To build the Docker image, run the following command:
