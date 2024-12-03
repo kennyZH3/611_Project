@@ -24,7 +24,7 @@ docker build . -t kz611
 To start RStudio using the built Docker image, use the command below:
 
 ```sh
-docker run -d -e PASSWORD=yourpassword --rm -p 8788:8788 -p 8787:8787 -v $(pwd):/home/rstudio/project -t kz611
+docker run -d -e PASSWORD=yourpassword --rm -p 8788:8788 -p 8787:8787 -v $(pwd):/home/rstudio -t kz611
 ```
 
 Once RStudio is running, you can connect to it by visiting:
