@@ -18,12 +18,12 @@ pca_data$cluster <- as.factor(kmeans_result$cluster)
 
 plot1 <- ggplot(pca_data, aes(x = PC1, y = PC2, color = cluster)) +
   geom_point(alpha = 0.6, size = 3) +
-  labs(title = "K-Means Clusters", x = "PC1", y = "PC2") +
+  labs(title = "K-Means Clusters on PCA Data", x = "PC1", y = "PC2") +
   theme_minimal()
 
 plot2 <- ggplot(pca_data, aes(x = PC1, y = PC2, color = class)) +
   geom_point(alpha = 0.6, size = 3) +
-  labs(title = "Original Class Labels", x = "PC1", y = "PC2") +
+  labs(title = "Original Class Labels on PCA Data", x = "PC1", y = "PC2") +
   theme_minimal()
 
 
