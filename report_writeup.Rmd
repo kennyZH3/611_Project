@@ -189,7 +189,7 @@ The two clustering methods effectively capture the distinction between class 5 a
 
 # Classification
 
-In this section, we compare three different machine learning methods in terms of their predictive accuracy to determine which model performs best for predicting user behavior classes.
+In this section, we compare three different machine learning methods in terms of their predictive accuracy to determine which model performs best for predicting user behavior classes. The dataset is split into training and test set, with 70% of the data split into training set (489 samples) and 30% as test set (211 samples). All classification models' performances are evaluated on the test set.
 
 ### Baseline Model - Random Guessing
 
